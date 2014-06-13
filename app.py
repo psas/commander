@@ -23,7 +23,13 @@ def index():
                 'file': f
             })
 
-    return render_template('index.html', layouts=Profiles)
+    filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), "profiles/default.yml")
+    # Open file, parse
+    with open(filename, 'r') as y:
+        profile = yaml.load(y, Loader=yaml.Loader)
+        sections = profile['sections']
+
+    return render_template('index.html', layouts=Profiles, sections=sections)
 
 if __name__ == '__main__':
     app.debug = True

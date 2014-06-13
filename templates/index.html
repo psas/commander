@@ -4,20 +4,42 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap-theme.min.css">
   <link rel="stylesheet" href="/static/css/style.css">
-  <title>commander</title>
+  <title>PSAS cmdr</title>
  </head>
  <body>
 
   <header>
    <ul class="nav nav-tabs">
-    <li><a class="brand" href="/"><img src="/static/img/psas.png" alt="logo" width="50" height="50"> commander </a></li>
+    <li><a class="brand" href="/"><img src="/static/img/psas.png" alt="logo" width="50" height="50"> cmdr </a></li>
     {% for tab in layouts %}
       <li class="active"><a href="{{ tab['uri'] }}">{{ tab['name'] }}</a></li>
     {% endfor %}
    </ul>
   </header>
+
+  <section id="main" class="container-fluid">
+    {% for sec in sections %}
+      <section class="row">
+         <div class="col-xs-12">
+            <h1>{{ sec['title'] }}</h1>
+            {% for cmd in sec['commands'] %}
+                {% if cmd['type'] == 'signal' %}
+                    <button type="button" class="btn
+                        {% if   cmd['importance'] == 'key' %}btn-lg
+                        {% elif cmd['importance'] == 'minor' %}btn-sm
+                        {% endif %}
+                        {% if   cmd['danger'] == 'high' %}btn-danger
+                        {% elif cmd['danger'] == 'medium' %}btn-warning
+                        {% elif cmd['danger'] == 'low' %}btn-success
+                        {% endif %}
+                    ">{{ cmd['title'] }}</button>
+                {% endif %}
+            {% endfor %}
+         </div>
+      </section>
+    {% endfor %}
+  </section>
 
  </body>
 </html>

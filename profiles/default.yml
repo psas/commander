@@ -2,7 +2,7 @@ title: Default
 
 sections:
   - title: Arm
-    contents:
+    commands:
       - title: ARM
         type: signal
         importance: key
