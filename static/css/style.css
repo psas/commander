@@ -1,0 +1,11 @@
+header {
+    padding-top: 12px;
+}
+
+header .nav .brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: -10px;
+    color: #888;
+}

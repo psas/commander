@@ -1,0 +1,19 @@
+title: Default
+
+sections:
+  - title: Arm
+    contents:
+      - title: ARM
+        type: signal
+        importance: key
+        danger: high
+        interlock: True
+        connection: FC-udp
+        payload: "#YOLO"
+      - title: disarm
+        type: signal
+        importance: major
+        danger: low
+        interlock: False
+        connection: FC-udp
+        payload: "#SAFE"

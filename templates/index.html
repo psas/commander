@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+ <head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>commander</title>
+ </head>
+ <body>
+
+  <header>
+   <ul class="nav nav-tabs">
+    <li><a class="brand" href="/"><img src="/static/img/psas.png" alt="logo" width="50" height="50"> commander </a></li>
+    {% for tab in layouts %}
+      <li class="active"><a href="{{ tab['uri'] }}">{{ tab['name'] }}</a></li>
+    {% endfor %}
+   </ul>
+  </header>
+
+ </body>
+</html>
