@@ -1,13 +1,16 @@
 <!doctype html>
-<html>
+<html ng-app="cmdr">
  <head lang="en">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/style.css">
+
+  <script src="/static/lib/angular/angular.js"></script>
+  <script src="/static/js/controller.js"></script>
   <title>PSAS cmdr</title>
  </head>
- <body>
+ <body ng-controller="cmdrButtons">
 
   <header>
    <ul class="nav nav-tabs">
@@ -33,7 +36,7 @@
                         {% elif cmd['danger'] == 'medium' %}btn-warning
                         {% elif cmd['danger'] == 'low' %}btn-success
                         {% endif %}
-                    ">{{ cmd['title'] }}</button>
+                    " ng-click="fire()">{{ cmd['title'] }}</button>
                 {% endif %}
             {% endfor %}
          </div>
