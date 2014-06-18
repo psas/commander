@@ -23,6 +23,7 @@
 
   <section id="main" class="container-fluid">
     {% for sec in sections %}
+    {% set sec_loop = loop %}
       <section class="row">
          <div class="col-xs-12">
             <h1>{{ sec['title'] }}</h1>
@@ -36,7 +37,7 @@
                         {% elif cmd['danger'] == 'medium' %}btn-warning
                         {% elif cmd['danger'] == 'low' %}btn-success
                         {% endif %}
-                    " ng-click="fire()">{{ cmd['title'] }}</button>
+                    " btn-loading  ng-click="fire($event, '/cmd/default/{{ sec_loop.index0 }}/{{ loop.index0 }}')">{{ cmd['title'] }}</button>
                 {% endif %}
             {% endfor %}
          </div>
