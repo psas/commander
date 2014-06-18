@@ -1,0 +1,12 @@
+title: RNH
+
+sections:
+  - title: Power
+    commands:
+      - title: "Port 1 ON"
+        type: signal
+        importance: major
+        danger: high
+        interlock: True
+        connection: FC-tcp
+        payload: "#PORTO01\r\n"
