@@ -7,6 +7,15 @@ sections:
         type: signal
         importance: major
         danger: high
-        interlock: True
+        interlock: False
         connection: FC-tcp
         payload: "#PORTO01\r\n"
+  - title: Status
+    commands:
+      - title: Get Status
+        type: signal
+        importance: key
+        danger: low
+        interlock: False
+        connection: FC-tcp
+        payload: "#PORTS\r\n"

@@ -29,7 +29,7 @@
             <h1>{{ sec['title'] }}</h1>
             {% for cmd in sec['commands'] %}
                 {% if cmd['type'] == 'signal' %}
-                    <button type="button" class="btn
+                    <button type="button" class="col-xs-2 btn
                         {% if   cmd['importance'] == 'key' %}btn-lg
                         {% elif cmd['importance'] == 'minor' %}btn-sm
                         {% endif %}
