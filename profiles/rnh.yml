@@ -8,7 +8,7 @@ sections:
         importance: major
         danger: high
         interlock: False
-        connection: FC-tcp
+        connection: RNH-tcp
         payload: "#PORTO01\r\n"
   - title: Status
     commands:
@@ -17,5 +17,5 @@ sections:
         importance: key
         danger: low
         interlock: False
-        connection: FC-tcp
+        connection: RNH-tcp
         payload: "#PORTS\r\n"

@@ -8,12 +8,12 @@ sections:
         importance: key
         danger: high
         interlock: True
-        connection: FC-udp
+        connection: FC-tcp
         payload: "#YOLO"
       - title: disarm
         type: signal
         importance: major
         danger: low
         interlock: False
-        connection: FC-udp
+        connection: FC-tcp
         payload: "#SAFE"
