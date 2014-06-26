@@ -34,8 +34,10 @@ def do_command(defn):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.bind(('', 0))
-            sock.connect(('127.0.0.1', 36100))
+            sock.connect(('127.0.0.1', 2223))
             sock.send(defn['payload'])
+            data = sock.recv(512)
+            print data
         except:
             print "borp"
         finally:

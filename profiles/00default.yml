@@ -9,11 +9,20 @@ sections:
         danger: high
         interlock: True
         connection: FC-tcp
-        payload: "#YOLO"
+        payload: "#YOLO\r\n"
       - title: disarm
         type: signal
         importance: major
         danger: low
         interlock: False
         connection: FC-tcp
-        payload: "#SAFE"
+        payload: "#SAFE\r\n"
+  - title: Versions
+    commands:
+      - title: Roll Control
+        type: signal
+        importance: key
+        danger: low
+        interlock: False
+        connection: FC-tcp
+        payload: "#VERS\r\n"
