@@ -1,28 +1,34 @@
 title: Default
 
 sections:
+
   - title: Arm
     commands:
+
       - title: ARM
-        type: signal
+        type: TCP
+        connection: FC
         importance: key
         danger: high
         interlock: True
-        connection: FC-tcp
         payload: "#YOLO\r\n"
+
       - title: disarm
-        type: signal
+        type: TCP
+        connection: FC
         importance: major
         danger: low
         interlock: False
-        connection: FC-tcp
         payload: "#SAFE\r\n"
+
+
   - title: Versions
     commands:
+
       - title: Roll Control
-        type: signal
+        type: TCP
         importance: key
+        connection: FC
         danger: low
         interlock: False
-        connection: FC-tcp
         payload: "#VERS\r\n"

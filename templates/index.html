@@ -28,22 +28,23 @@
          <div class="col-xs-12">
             <h1>{{ sec['title'] }}</h1>
             {% for cmd in sec['commands'] %}
-                {% if cmd['type'] == 'signal' %}
-                    <button type="button" class="col-xs-2 btn
-                        {% if   cmd['importance'] == 'key' %}btn-lg
-                        {% elif cmd['importance'] == 'minor' %}btn-sm
-                        {% endif %}
-                        {% if   cmd['danger'] == 'high' %}btn-danger
-                        {% elif cmd['danger'] == 'medium' %}btn-warning
-                        {% elif cmd['danger'] == 'low' %}btn-success
-                        {% endif %}
-                    " btn-loading  ng-click="fire($event, '/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}')">{{ cmd['title'] }}</button>
-                {% endif %}
+                <button type="button" class="col-xs-2 btn
+                    {% if   cmd['importance'] == 'key' %}btn-lg
+                    {% elif cmd['importance'] == 'minor' %}btn-sm
+                    {% endif %}
+                    {% if   cmd['danger'] == 'high' %}btn-danger
+                    {% elif cmd['danger'] == 'medium' %}btn-warning
+                    {% elif cmd['danger'] == 'low' %}btn-success
+                    {% endif %}
+                " btn-loading  ng-click="fire($event, '/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}')">{{ cmd['title'] }}</button>
             {% endfor %}
          </div>
       </section>
     {% endfor %}
   </section>
 
+  <footer>
+    <button type="button" class="btn" ng-click="test()">Test Mode</button>
+  </footer>
  </body>
 </html>

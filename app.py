@@ -5,7 +5,8 @@ import json
 import os
 import glob
 import socket
-from psas_packet import network
+#from psas_packet import network
+from psas_cmdr import commands
 app = Flask(__name__)
 
 def slug(name):
@@ -30,18 +31,10 @@ for f in files_yml:
         })
 
 def do_command(defn):
-    if defn['connection'] == 'FC-tcp':
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.bind(('', 0))
-            sock.connect(('127.0.0.1', 2223))
-            sock.send(defn['payload'])
-            data = sock.recv(512)
-            print data
-        except:
-            print "borp"
-        finally:
-            sock.close()
+    # get connection class
+    conn = commands.CONNECTIONS[defn['connection']][defn['type']]
+    response = conn.send(defn['payload'])
+    print response
 
 
 @app.route('/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
@@ -50,7 +43,6 @@ def cmd(profile, section, command):
 
     for p in Profiles:
         if profile == p['slug']:
-            #print p['sections'][section]['commands'][command]
             do_command(p['sections'][section]['commands'][command])
     return "{}"
 
