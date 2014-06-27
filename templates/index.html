@@ -22,25 +22,56 @@
   </header>
 
   <section id="main" class="container-fluid">
-    {% for sec in sections %}
-    {% set sec_loop = loop %}
-      <section class="row">
-         <div class="col-xs-12">
-            <h1>{{ sec['title'] }}</h1>
-            {% for cmd in sec['commands'] %}
-                <button type="button" class="col-xs-2 btn
-                    {% if   cmd['importance'] == 'key' %}btn-lg
-                    {% elif cmd['importance'] == 'minor' %}btn-sm
-                    {% endif %}
-                    {% if   cmd['danger'] == 'high' %}btn-danger
-                    {% elif cmd['danger'] == 'medium' %}btn-warning
-                    {% elif cmd['danger'] == 'low' %}btn-success
-                    {% endif %}
-                " btn-loading  ng-click="fire($event, '/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}')">{{ cmd['title'] }}</button>
-            {% endfor %}
-         </div>
-      </section>
-    {% endfor %}
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+
+        {% for sec in sections %}
+        {% set sec_loop = loop %}
+          <section class="row">
+             <div class="col-xs-12">
+                <h1>{{ sec['title'] }}</h1>
+                {% for cmd in sec['commands'] %}
+                    <button type="button" class="col-xs-3 btn
+                        {% if   cmd['importance'] == 'key' %}btn-lg
+                        {% elif cmd['importance'] == 'minor' %}btn-sm
+                        {% endif %}
+                        {% if   cmd['danger'] == 'high' %}btn-danger
+                        {% elif cmd['danger'] == 'medium' %}btn-warning
+                        {% elif cmd['danger'] == 'low' %}btn-success
+                        {% endif %}
+                    " btn-loading  ng-click="fire($event, '/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}', '{{ cmd['title'] }}')">{{ cmd['title'] }}</button>
+                {% endfor %}
+             </div>
+          </section>
+        {% endfor %}
+
+      </div>
+      <div class="col-xs-12 col-md-6">
+
+        {% raw %}
+        <h1>Command History</h1>
+        <hr>
+
+        <table class="table table-striped">
+         <thead>
+          <tr>
+            <th>Time</th><th>Command</th><th>Result</th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr ng-repeat="history in responses">
+            <td>{{ history.time }}</td><td>{{ history.cmd }}</td><td>{{ history.response }}</td>
+          </tr>
+         </tbody>
+        </table>
+
+        <hr>
+        <button type="button" class="btn" ng-click="clearHistory()">Clear History</button>
+
+        {% endraw %}
+
+      </div>
+    </div>
   </section>
 
   <footer>

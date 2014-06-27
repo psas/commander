@@ -5,7 +5,7 @@ import json
 import os
 import glob
 import socket
-#from psas_packet import network
+import json
 from psas_cmdr import commands
 app = Flask(__name__)
 
@@ -47,14 +47,14 @@ def cmd(profile, section, command):
     for p in Profiles:
         if profile == p['slug']:
             do_command(p['sections'][section]['commands'][command])
-    return "{}"
+    return json.dumps({'result': "success"})
 
 @app.route('/TEST/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
 def test_cmd(profile, section, command):
     for p in Profiles:
         if profile == p['slug']:
             do_command(p['sections'][section]['commands'][command], test=True)
-    return "{}"
+    return json.dumps({'result': "success"})
 
 
 

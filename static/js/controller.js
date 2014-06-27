@@ -10,19 +10,33 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
         $scope.background = $scope.test ? "#ecc" : "#fff";
     };
 
-    $scope.fire = function (e, cmd) {
+    $scope.responses = [];
+
+    $scope.clearHistory = function () {
+        $scope.responses = [];
+    };
+
+    $scope.fire = function (e, cmd, title) {
         e.srcElement.disabled = true
 
+        var time = new Date()
+        var H = time.getHours();
+        var M = time.getMinutes();
+        var S = time.getSeconds();
+        $scope.responses.push({'time': H+':'+M+':'+S, 'cmd': title, 'response': "pending..." });
 
         if ($scope.test) {
             cmd = '/TEST' + cmd;
         }
-
-        console.log("Command"+cmd);
         var request = $http({
             method: "post",
             url: cmd
         }).success(function (d) {
+            console.log(d.result);
+            $scope.responses[$scope.responses.length - 1].response = d.result;
+            RET = "IT WORKS"
+            //$scope.responses.push({'time': "1", 'cmd': "Command"+cmd, 'response': d.result});
+            //console.log(JSON.parse(d));
             e.srcElement.disabled = false;
         });
     };
