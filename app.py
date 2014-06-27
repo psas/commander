@@ -30,12 +30,15 @@ for f in files_yml:
             'sections': p['sections'],
         })
 
-def do_command(defn):
+def do_command(defn, test=False):
     # get connection class
-    conn = commands.CONNECTIONS[defn['connection']][defn['type']]
+    if test:
+        conn = commands.CONNECTIONS['TEST'][defn['type']]
+    else:
+        conn = commands.CONNECTIONS[defn['connection']][defn['type']]
     response = conn.send(defn['payload'])
     print response
-
+    return
 
 @app.route('/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
 def cmd(profile, section, command):
@@ -45,6 +48,14 @@ def cmd(profile, section, command):
         if profile == p['slug']:
             do_command(p['sections'][section]['commands'][command])
     return "{}"
+
+@app.route('/TEST/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
+def test_cmd(profile, section, command):
+    for p in Profiles:
+        if profile == p['slug']:
+            do_command(p['sections'][section]['commands'][command], test=True)
+    return "{}"
+
 
 
 @app.route('/')

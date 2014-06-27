@@ -10,7 +10,7 @@
   <script src="/static/js/controller.js"></script>
   <title>PSAS cmdr</title>
  </head>
- <body ng-controller="cmdrButtons">
+ <body ng-controller="cmdrButtons" {% raw %}style="background:{{ background }};"{% endraw %}>
 
   <header>
    <ul class="nav nav-tabs">
@@ -44,7 +44,7 @@
   </section>
 
   <footer>
-    <button type="button" class="btn" ng-click="test()">Test Mode</button>
+    <button type="button" class="btn" ng-click="settest()">Test Mode</button>
   </footer>
  </body>
 </html>
