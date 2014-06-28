@@ -25,10 +25,34 @@ sections:
   - title: Versions
     commands:
 
-      - title: Roll Control
+      - title: RNH
         type: TCP
-        importance: key
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#VERS\r\n"
+
+      - title: FC
+        type: TCP
+        importance: major
         connection: FC
+        danger: low
+        interlock: False
+        payload: "#VERS\r\n"
+
+      - title: IMU
+        type: TCP
+        importance: major
+        connection: IMU
+        danger: low
+        interlock: False
+        payload: "#VERS\r\n"
+
+      - title: Roll
+        type: TCP
+        importance: major
+        connection: ROLL
         danger: low
         interlock: False
         payload: "#VERS\r\n"

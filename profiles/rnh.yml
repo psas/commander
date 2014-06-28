@@ -1,21 +1,34 @@
 title: RNH
 
 sections:
+
   - title: Power
     commands:
+
       - title: "Port 1 ON"
-        type: signal
+        type: TCP
         importance: major
+        connection: RNH
         danger: high
         interlock: False
-        connection: RNH-tcp
         payload: "#PORTO01\r\n"
-  - title: Status
-    commands:
-      - title: Get Status
-        type: signal
-        importance: key
+
+      - title: "Port 1 off"
+        type: TCP
+        importance: major
+        connection: RNH
         danger: low
         interlock: False
-        connection: RNH-tcp
+        payload: "#PORTF01\r\n"
+
+
+  - title: Status
+    commands:
+
+      - title: "Get Status"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: high
+        interlock: False
         payload: "#PORTS\r\n"

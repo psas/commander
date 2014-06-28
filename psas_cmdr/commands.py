@@ -42,8 +42,8 @@ class TCP_Command(object):
 
 CONNECTIONS = {
     'TEST': {'TCP': TCP_Command('127.0.0.1', 2223)},
-    'RNH':  {'TCP': TCP_Command('10.0.0.5',  23)},
-    'FC':   {'TCP': TCP_Command('10.0.0.10', 23)},
-    'IMU':  {'TCP': TCP_Command('10.0.0.20', 23)},
-    'ROLL': {'TCP': TCP_Command('10.0.0.30', 23)},
+    'RNH':  {'TCP': TCP_Command('10.10.10.5',  23)},
+    'FC':   {'TCP': TCP_Command('10.10.10.10', 23)},
+    'IMU':  {'TCP': TCP_Command('10.10.10.20', 23)},
+    'ROLL': {'TCP': TCP_Command('10.10.10.30', 23)},
 }
