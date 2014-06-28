@@ -17,6 +17,6 @@ while 1:
         data = conn.recv(1024)
         if not data: continue
         print data
-        conn.send("Unknown")
+        conn.send("data from device")
         conn.close()
         break

@@ -15,29 +15,25 @@ class TCP_Command(object):
             sock.connect((self.ip, self.port))
         except:
             sock.close()
-            print "connection error"
-            return None
+            return None, "Connection error"
 
         try:
             sock.send(cmd)
         except socket.timeout:
             sock.close()
-            print "timoute"
-            return None
+            return None, "Send timeout"
         except:
             sock.close()
-            print "didnt send"
-            return None
+            return None, "Send failed"
 
         try:
             data = sock.recv(512)
         except:
             sock.close()
-            return None
+            return None, "Response timeout"
 
         sock.close()
-        return data
-
+        return 1, data
 
 
 CONNECTIONS = {

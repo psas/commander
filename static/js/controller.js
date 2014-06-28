@@ -33,10 +33,12 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
             url: cmd
         }).success(function (d) {
             console.log(d.result);
-            $scope.responses[$scope.responses.length - 1].response = d.result;
-            RET = "IT WORKS"
-            //$scope.responses.push({'time': "1", 'cmd': "Command"+cmd, 'response': d.result});
-            //console.log(JSON.parse(d));
+            if (d.result == 'success') {
+                $scope.responses[$scope.responses.length - 1].response = d.data;
+            }
+            else {
+                $scope.responses[$scope.responses.length - 1].response = d.result + " (" + d.reason + ")";
+            }
             e.srcElement.disabled = false;
         });
     };

@@ -36,25 +36,39 @@ def do_command(defn, test=False):
         conn = commands.CONNECTIONS['TEST'][defn['type']]
     else:
         conn = commands.CONNECTIONS[defn['connection']][defn['type']]
-    response = conn.send(defn['payload'])
+    success, response = conn.send(defn['payload'])
     print response
-    return
+    return success, response
+
 
 @app.route('/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
 def cmd(profile, section, command):
-    print profile, section, command
 
+    success = None
+    response = "Unknown"
     for p in Profiles:
         if profile == p['slug']:
-            do_command(p['sections'][section]['commands'][command])
-    return json.dumps({'result': "success"})
+            success, response = do_command(p['sections'][section]['commands'][command])
+
+    if success is not None:
+        return json.dumps({'result': "success", 'data': response})
+
+    return json.dumps({'result': "failure", 'reason': response})
+
 
 @app.route('/TEST/cmd/<profile>/<int:section>/<int:command>', methods=['POST'])
 def test_cmd(profile, section, command):
+
+    success = None
+    response = "Unknown"
     for p in Profiles:
         if profile == p['slug']:
-            do_command(p['sections'][section]['commands'][command], test=True)
-    return json.dumps({'result': "success"})
+            success, response = do_command(p['sections'][section]['commands'][command], test=True)
+
+    if success is not None:
+        return json.dumps({'result': "success", 'data': response})
+
+    return json.dumps({'result': "failure", 'reason': response})
 
 
 
