@@ -17,7 +17,7 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
     };
 
     $scope.fire = function (e, cmd, title) {
-        e.srcElement.disabled = true
+        e.target.disabled = true;
 
         var time = new Date()
         var H = time.getHours();
@@ -39,7 +39,7 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
             else {
                 $scope.responses[$scope.responses.length - 1].response = d.result + " (" + d.reason + ")";
             }
-            e.srcElement.disabled = false;
+            e.target.disabled = false;
         });
     };
 
