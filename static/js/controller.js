@@ -28,11 +28,11 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
         if ($scope.test) {
             cmd = '/TEST' + cmd;
         }
+
         var request = $http({
             method: "post",
             url: cmd
         }).success(function (d) {
-            console.log(d.result);
             if (d.result == 'success') {
                 $scope.responses[$scope.responses.length - 1].response = d.data;
             }

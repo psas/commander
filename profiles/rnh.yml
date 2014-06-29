@@ -27,8 +27,8 @@ sections:
 
       - title: "Get Status"
         type: TCP
-        importance: major
+        importance: minor
         connection: RNH
-        danger: high
+        danger: low
         interlock: False
         payload: "#PORTS\r\n"
