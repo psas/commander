@@ -37,7 +37,6 @@ def do_command(defn, test=False):
     else:
         conn = commands.CONNECTIONS[defn['connection']][defn['type']]
     success, response = conn.send(defn['payload'])
-    print response
     return success, response
 
 

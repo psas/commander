@@ -12,6 +12,7 @@ class TCP_Command(object):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.bind(('', 0))
+            sock.settimeout(2)
             sock.connect((self.ip, self.port))
         except:
             sock.close()
