@@ -21,6 +21,13 @@ sections:
         interlock: False
         payload: "#SAFE\r\n"
 
+      - title: Rocket Ready
+        type: TCP
+        connection: RNH
+        importance: major
+        danger: high
+        interlock: True
+        payload: "#RRDY\r\n"
 
   - title: Versions
     commands:

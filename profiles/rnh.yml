@@ -5,6 +5,24 @@ sections:
   - title: Power
     commands:
 
+      - title: "ALL ON"
+        type: TCP
+        importance: key
+        connection: RNH
+        danger: high
+        interlock: True
+        payload: "#PORTOFF\r\n"
+
+      - title: "ALL OFF"
+        type: TCP
+        importance: key
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTXFF\r\n"
+
+      - title: divider
+
       - title: "FC ON"
         type: TCP
         importance: minor
