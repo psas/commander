@@ -47,7 +47,7 @@ sections:
         connection: RNH
         danger: high
         interlock: False
-        payload: "#PORTO04\r\n"
+        payload: "#PORTO08\r\n"
 
       - title: "IMU off"
         type: TCP
@@ -55,7 +55,7 @@ sections:
         connection: RNH
         danger: low
         interlock: False
-        payload: "#PORTX04\r\n"
+        payload: "#PORTX08\r\n"
 
       - title: divider
 
@@ -65,7 +65,7 @@ sections:
         connection: RNH
         danger: high
         interlock: True
-        payload: "#PORTO06\r\n"
+        payload: "#PORTO20\r\n"
 
       - title: "WiFi PA off"
         type: TCP
@@ -73,7 +73,7 @@ sections:
         connection: RNH
         danger: low
         interlock: False
-        payload: "#PORTX06\r\n"
+        payload: "#PORTX20\r\n"
 
       - title: divider
 
@@ -83,7 +83,7 @@ sections:
         connection: RNH
         danger: high
         interlock: False
-        payload: "#PORTO07\r\n"
+        payload: "#PORTO40\r\n"
 
       - title: "ROLL off"
         type: TCP
@@ -91,7 +91,7 @@ sections:
         connection: RNH
         danger: low
         interlock: False
-        payload: "#PORTX07\r\n"
+        payload: "#PORTX40\r\n"
 
 
   - title: Status
