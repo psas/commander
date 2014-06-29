@@ -5,21 +5,93 @@ sections:
   - title: Power
     commands:
 
-      - title: "Port 1 ON"
+      - title: "FC ON"
         type: TCP
-        importance: major
+        importance: minor
         connection: RNH
         danger: high
         interlock: False
         payload: "#PORTO01\r\n"
 
-      - title: "Port 1 off"
+      - title: "FC off"
         type: TCP
-        importance: major
+        importance: minor
         connection: RNH
         danger: low
         interlock: False
-        payload: "#PORTF01\r\n"
+        payload: "#PORTX01\r\n"
+
+      - title: divider
+
+      - title: "RasPiCam 1 ON"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: False
+        payload: "#PORTO02\r\n"
+
+      - title: "RasPiCam 1 off"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX02\r\n"
+
+      - title: divider
+
+      - title: "IMU ON"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: False
+        payload: "#PORTO04\r\n"
+
+      - title: "IMU off"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX04\r\n"
+
+      - title: divider
+
+      - title: "WiFi PA ON"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: True
+        payload: "#PORTO06\r\n"
+
+      - title: "WiFi PA off"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX06\r\n"
+
+      - title: divider
+
+      - title: "ROLL ON"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: False
+        payload: "#PORTO07\r\n"
+
+      - title: "ROLL off"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX07\r\n"
 
 
   - title: Status
