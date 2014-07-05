@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+ <head lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+  <title>PSAS cmdr LOGIN</title>
+ </head>
+ <body>
+
+ <div class="wrapper">
+
+  <header>
+    <a class="brand" href="/"><img src="/static/img/psas.png" alt="logo" width="50" height="50"> cmdr </a>
+  </header>
+
+  <section id="main" class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-md-offset-4">
+        <h2>Please Log In</h2>
+        <form role="form" method="post">
+          <div class="form-group">
+            <label for="inputPassword">Admin Password</label>
+            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        {% if failure %}
+          <p class="bg-danger" style="margin-top: 10px;padding:20px;"><strong>Login failed.</strong></p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+ </div>
+
+  <footer class="container-fluid">
+    <a href="/">cmdr</a>
+  </footer>
+ </body>
+</html>
