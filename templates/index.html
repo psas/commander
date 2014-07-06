@@ -45,7 +45,7 @@
                             {% elif cmd['danger'] == 'medium' %}btn-warning
                             {% elif cmd['danger'] == 'low' %}btn-success
                             {% endif %}
-                        " ng-click="fire($event, '/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}', '{{ cmd['title'] }}')">{{ cmd['title'] }}</button>
+                        " ng-disabled="busy" ng-click="fire('/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}', '{{ cmd['title'] }}')">{{ cmd['title'] }}</button>
                       </div>
                     {% endif %}
                 {% endfor %}

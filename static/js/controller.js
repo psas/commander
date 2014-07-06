@@ -2,8 +2,10 @@ var cmdr = angular.module('cmdr', []);
 
 cmdr.controller('cmdrButtons', function ($scope, $http) {
 
+    // Init
     $scope.test = false;
     $scope.background = "#fff";
+    $scope.busy = false;
 
     $scope.settest = function () {
         $scope.test = !$scope.test;
@@ -16,13 +18,16 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
         $scope.responses = [];
     };
 
-    $scope.fire = function (e, cmd, title) {
-        e.target.disabled = true;
+    $scope.fire = function (cmd, title) {
+        $scope.busy = true;
 
         var time = new Date()
         var H = time.getHours();
         var M = time.getMinutes();
         var S = time.getSeconds();
+        if (H   < 10) H = "0"+H;
+        if (M < 10) M = "0"+M;
+        if (S < 10) S = "0"+S;
         $scope.responses.push({'time': H+':'+M+':'+S, 'cmd': title, 'response': "pending..." });
 
         if ($scope.test) {
@@ -39,7 +44,7 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
             else {
                 $scope.responses[$scope.responses.length - 1].response = d.result + " (" + d.reason + ")";
             }
-            e.target.disabled = false;
+            $scope.busy = false;
         });
     };
 
