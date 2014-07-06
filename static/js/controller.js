@@ -45,6 +45,9 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
                 $scope.responses[$scope.responses.length - 1].response = d.result + " (" + d.reason + ")";
             }
             $scope.busy = false;
+        }).error(function (d) {
+            $scope.responses[$scope.responses.length - 1].response = "Failed to contact CMDR server!";
+            $scope.busy = false;
         });
     };
 
