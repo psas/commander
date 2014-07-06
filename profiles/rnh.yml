@@ -23,7 +23,7 @@ sections:
 
       - title: divider
 
-      - title: "FC ON"
+      - title: "[1] FC ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -31,7 +31,7 @@ sections:
         interlock: False
         payload: "#PORTO01\r\n"
 
-      - title: "FC off"
+      - title: "[1] FC off"
         type: TCP
         importance: minor
         connection: RNH
@@ -41,7 +41,7 @@ sections:
 
       - title: divider
 
-      - title: "RasPiCam 1 ON"
+      - title: "[2] RasPiCam 1 ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -49,7 +49,7 @@ sections:
         interlock: False
         payload: "#PORTO02\r\n"
 
-      - title: "RasPiCam 1 off"
+      - title: "[2] RasPiCam 1 off"
         type: TCP
         importance: minor
         connection: RNH
@@ -59,7 +59,25 @@ sections:
 
       - title: divider
 
-      - title: "IMU ON"
+      - title: "[3] ON"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: False
+        payload: "#PORTO04\r\n"
+
+      - title: "[3] off"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX04\r\n"
+
+      - title: divider
+
+      - title: "[4] IMU ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -67,7 +85,7 @@ sections:
         interlock: False
         payload: "#PORTO08\r\n"
 
-      - title: "IMU off"
+      - title: "[4] IMU off"
         type: TCP
         importance: minor
         connection: RNH
@@ -77,7 +95,7 @@ sections:
 
       - title: divider
 
-      - title: "WiFi PA ON"
+      - title: "[6] WiFi PA ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -85,7 +103,7 @@ sections:
         interlock: True
         payload: "#PORTO20\r\n"
 
-      - title: "WiFi PA off"
+      - title: "[6] WiFi PA off"
         type: TCP
         importance: minor
         connection: RNH
@@ -95,7 +113,7 @@ sections:
 
       - title: divider
 
-      - title: "ROLL ON"
+      - title: "[7] ROLL ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -103,13 +121,31 @@ sections:
         interlock: False
         payload: "#PORTO40\r\n"
 
-      - title: "ROLL off"
+      - title: "[7] ROLL off"
         type: TCP
         importance: minor
         connection: RNH
         danger: low
         interlock: False
         payload: "#PORTX40\r\n"
+
+      - title: divider
+
+      - title: "[8]"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: high
+        interlock: False
+        payload: "#PORTO80\r\n"
+
+      - title: "[8]"
+        type: TCP
+        importance: minor
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTX80\r\n"
 
 
   - title: Extra
@@ -131,6 +167,14 @@ sections:
         interlock: False
         payload: "#SLEP\r\n"
 
+      - title: "Port Failure"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#PORTF\r\n"
+
       - title: "Time"
         type: TCP
         importance: major
@@ -139,11 +183,27 @@ sections:
         interlock: False
         payload: "#TIME\r\n"
 
-      - title: "ROCKET READY"
+      - title: "RREADY ON"
         type: TCP
         importance: major
         connection: RNH
         danger: high
+        interlock: True
+        payload: "#RRDYA\r\n"
+
+      - title: "RREADY OFF"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: True
+        payload: "#RRDY0\r\n"
+
+      - title: "RREADY STATUS"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
         interlock: True
         payload: "#RRDY\r\n"
 
