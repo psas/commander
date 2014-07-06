@@ -112,13 +112,55 @@ sections:
         payload: "#PORTX40\r\n"
 
 
-  - title: Status
+  - title: Extra
     commands:
 
       - title: "Get Status"
         type: TCP
-        importance: minor
+        importance: major
         connection: RNH
         danger: low
         interlock: False
         payload: "#PORTS\r\n"
+
+      - title: "Sleep"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#SLEP\r\n"
+
+      - title: "Time"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#TIME\r\n"
+
+      - title: "ROCKET READY"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: high
+        interlock: True
+        payload: "#RRDY\r\n"
+
+      - title: "ARM"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: high
+        interlock: True
+        payload: "#YOLO\r\n"
+
+      - title: "Safe"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: False
+        payload: "#SAFE\r\n"
+
+
