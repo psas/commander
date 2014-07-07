@@ -18,7 +18,7 @@ and layout of our commands is necessary (a config file).
 To install make sure you have libffi-dev. Make a virtual environment and install
 python dependences via pip.
 
-    $ sudo apt-get install libffi-dev
+    $ sudo apt-get install python-dev libffi-dev
     $ pip install -r requirements.txt
 
 The first time you need to generate secrets. Run
@@ -33,6 +33,10 @@ And fill in an admin password.
 To run in debug mode:
 
     $ python app.py
+
+To run in production (on port 80):
+
+    $ sudo ./run.py
 
 ### Optional: Run debug TCP listener
 
