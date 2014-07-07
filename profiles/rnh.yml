@@ -223,4 +223,11 @@ sections:
         interlock: False
         payload: "#SAFE\r\n"
 
+      - title: "Umbilical status"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: low
+        interlock: True
+        payload: "#UMBD\r\n"
 
