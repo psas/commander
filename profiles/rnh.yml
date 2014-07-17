@@ -59,7 +59,7 @@ sections:
 
       - title: divider
 
-      - title: "[3] ON"
+      - title: "[3] GPS ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -67,7 +67,7 @@ sections:
         interlock: False
         payload: "#PORTO04\r\n"
 
-      - title: "[3] off"
+      - title: "[3] GPS off"
         type: TCP
         importance: minor
         connection: RNH
@@ -113,7 +113,7 @@ sections:
 
       - title: divider
 
-      - title: "[7] ROLL ON"
+      - title: "[7] Roll ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -121,7 +121,7 @@ sections:
         interlock: False
         payload: "#PORTO40\r\n"
 
-      - title: "[7] ROLL off"
+      - title: "[7] Roll off"
         type: TCP
         importance: minor
         connection: RNH
@@ -131,7 +131,7 @@ sections:
 
       - title: divider
 
-      - title: "[8]"
+      - title: "[8] RasPiCam 2 ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -139,7 +139,7 @@ sections:
         interlock: False
         payload: "#PORTO80\r\n"
 
-      - title: "[8]"
+      - title: "[8] RasPiCam 2 off"
         type: TCP
         importance: minor
         connection: RNH
