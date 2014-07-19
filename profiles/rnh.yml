@@ -151,7 +151,7 @@ sections:
   - title: Extra
     commands:
 
-      - title: "Get Status"
+      - title: "Port Status"
         type: TCP
         importance: major
         connection: RNH
