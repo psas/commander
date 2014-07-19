@@ -77,7 +77,7 @@ sections:
 
       - title: divider
 
-      - title: "[4] IMU ON"
+      - title: "[4] RasPiCam2 ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -85,7 +85,7 @@ sections:
         interlock: False
         payload: "#PORTO08\r\n"
 
-      - title: "[4] IMU off"
+      - title: "[4] RasPiCam2 off"
         type: TCP
         importance: minor
         connection: RNH
@@ -131,7 +131,7 @@ sections:
 
       - title: divider
 
-      - title: "[8] RasPiCam 2 ON"
+      - title: "[8] IMU ON"
         type: TCP
         importance: minor
         connection: RNH
@@ -139,7 +139,7 @@ sections:
         interlock: False
         payload: "#PORTO80\r\n"
 
-      - title: "[8] RasPiCam 2 off"
+      - title: "[8] IMU off"
         type: TCP
         importance: minor
         connection: RNH
