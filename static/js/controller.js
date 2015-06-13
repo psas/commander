@@ -49,9 +49,25 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
         // Make HTTP request
         var request = $http({ method: "post", url: cmd }).
         success(function (d) {
-            if (d.result == 'success')
+            if (d.result == 'success') {
                 $scope.responses[$scope.responses.length - 1].response = d.data;
-            else
+                if ($scope.responses[$scope.responses.length - 1].cmd.search(/^(ALL|Port|\[\d+\]) /) >= 0) {
+                    var dat = parseInt(d.data, 16);
+                    for (var i = 1, offset = 2; i <= 8; i++) {
+                        if (i == 5)
+                            continue;
+                        var bit = 1 << (i-1);
+                        if (dat & bit) {
+                            document.getElementsByTagName("BUTTON")[offset].style.backgroundColor="black";
+                            document.getElementsByTagName("BUTTON")[offset+1].style.backgroundColor="";
+                        } else {
+                            document.getElementsByTagName("BUTTON")[offset].style.backgroundColor="";
+                            document.getElementsByTagName("BUTTON")[offset+1].style.backgroundColor="black";
+                        }
+                        offset += 2;
+                    }
+                }
+            } else
                 $scope.responses[$scope.responses.length - 1].response = d.result + " (" + d.reason + ")";
             $scope.busy = false;
         }).
