@@ -31,7 +31,8 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
-        interlock: False
+        interlock: True
+        port: '0'
         payload: "#PORTO01\r\n"
 
       - title: "[1] FC off"
@@ -49,6 +50,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '1'
         interlock: False
         payload: "#PORTO02\r\n"
 
@@ -67,6 +69,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '2'
         interlock: False
         payload: "#PORTO04\r\n"
 
@@ -85,6 +88,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '3'
         interlock: False
         payload: "#PORTO08\r\n"
 
@@ -103,6 +107,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '5'
         interlock: True
         payload: "#PORTO20\r\n"
 
@@ -121,6 +126,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '6'
         interlock: False
         payload: "#PORTO40\r\n"
 
@@ -139,6 +145,7 @@ sections:
         importance: minor
         connection: RNH
         danger: 'on'
+        port: '7'
         interlock: False
         payload: "#PORTO80\r\n"
 

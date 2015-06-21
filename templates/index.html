@@ -37,7 +37,7 @@
                       <hr class="row">
                     {% else %}
                       <div class="col-xs-3">
-                        <button type="button" class="btn btn-block
+                        <button type="button" {%if cmd['port'] %} id="P{{ cmd['port'] }}"{% endif %} class="btn btn-block
                             {% if   cmd['importance'] == 'key' %}btn-sm
                             {% elif cmd['importance'] == 'minor' %}btn-xs
                             {% endif %}
