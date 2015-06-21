@@ -26,9 +26,9 @@ with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
             elif 'XFF' in data:
                 ports = 0
             elif data[5] == 'O':
-                ports |= int(data[6:])
+                ports |=  int('0x'+data[6:].strip(), 16)
             elif data[5] == 'X':
-                ports &= ~int(data[6:])
+                ports &= ~int('0x'+data[6:].strip(), 16)
 
             conn.send(str(ports))
             conn.close()
