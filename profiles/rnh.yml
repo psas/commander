@@ -5,11 +5,13 @@ sections:
   - title: Power
     commands:
 
+      - title: divider
+
       - title: "ALL ON"
         type: TCP
         importance: key
         connection: RNH
-        danger: high
+        danger: low
         interlock: True
         payload: "#PORTOFF\r\n"
 
@@ -17,9 +19,10 @@ sections:
         type: TCP
         importance: key
         connection: RNH
-        danger: low
+        danger: high
         interlock: False
         payload: "#PORTXFF\r\n"
+
 
       - title: divider
 
@@ -27,7 +30,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO01\r\n"
 
@@ -35,7 +38,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX01\r\n"
 
@@ -45,7 +48,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO02\r\n"
 
@@ -53,7 +56,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX02\r\n"
 
@@ -63,7 +66,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO04\r\n"
 
@@ -71,7 +74,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX04\r\n"
 
@@ -81,7 +84,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO08\r\n"
 
@@ -89,7 +92,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX08\r\n"
 
@@ -99,7 +102,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: True
         payload: "#PORTO20\r\n"
 
@@ -107,7 +110,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX20\r\n"
 
@@ -117,7 +120,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO40\r\n"
 
@@ -125,7 +128,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX40\r\n"
 
@@ -135,7 +138,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: high
+        danger: 'on'
         interlock: False
         payload: "#PORTO80\r\n"
 
@@ -143,7 +146,7 @@ sections:
         type: TCP
         importance: minor
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: False
         payload: "#PORTX80\r\n"
 

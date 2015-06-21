@@ -38,12 +38,14 @@
                     {% else %}
                       <div class="col-xs-3">
                         <button type="button" class="btn btn-block
-                            {% if   cmd['importance'] == 'key' %}btn-lg
-                            {% elif cmd['importance'] == 'minor' %}btn-sm
+                            {% if   cmd['importance'] == 'key' %}btn-sm
+                            {% elif cmd['importance'] == 'minor' %}btn-xs
                             {% endif %}
                             {% if   cmd['danger'] == 'high' %}btn-danger
                             {% elif cmd['danger'] == 'medium' %}btn-warning
                             {% elif cmd['danger'] == 'low' %}btn-success
+                            {% elif cmd['danger'] == 'on' %}btn-on
+                            {% elif cmd['danger'] == 'off' %}btn-off
                             {% endif %}
                         " ng-disabled="busy" ng-click="fire('/cmd/{{ slug }}/{{ sec_loop.index0 }}/{{ loop.index0 }}', '{{ cmd['title'] }}')">{{ cmd['title'] }}</button>
                       </div>

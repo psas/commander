@@ -16,18 +16,16 @@ header .nav .brand {
     color: #888;
 }
 
-#main hr.row {
-    margin-top: 45px;
-}
-
-#main hr {
-    margin-bottom: 8px;
-}
+#main h1 { font-size: 2.0em; }
+#main hr.row { margin-top: 35px; }
+#main hr { margin-bottom: 5px; }
 
 #history {
     height: 340px;
     overflow-y: scroll;
-
 }
+
+.btn-on { background: #ddd; }
+.btn-off { background: #888; }
 
 footer { background: #eee; }
