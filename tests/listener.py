@@ -30,6 +30,6 @@ with closing(socket.socket(socket.AF_INET, socket.SOCK_STREAM)) as s:
             elif data[5] == 'X':
                 ports &= ~int('0x'+data[6:].strip(), 16)
 
-            conn.send(str(ports))
+            conn.send(str(hex(ports))[2:])
             conn.close()
             break

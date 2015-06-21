@@ -54,7 +54,7 @@ cmdr.controller('cmdrButtons', function ($scope, $http) {
                     //console.log(i+" -> "+((d.data & (1<<i)) > 0)  );
                     var button = document.getElementById("P"+i);
                     if (button) {
-                        if ( (d.data & (1<<i)) > 0 )
+                        if ( ('0x'+d.data & (1<<i)) > 0 )
                             button.className += " ison";
                         else
                             button.className = button.className.replace(/(?:^|\s)ison(?!\S)/g, '' );
