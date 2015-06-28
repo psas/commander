@@ -29,6 +29,7 @@ class TCP_Command(object):
 
         try:
             data = sock.recv(512)
+            data = data.rstrip(" \t\n\r\0")
         except:
             sock.close()
             return None, "Response timeout"
