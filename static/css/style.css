@@ -25,6 +25,7 @@ header .nav .brand {
     overflow-y: scroll;
 }
 
+.btn { margin-bottom: 5px; }
 .btn-on { background: #ddd; }
 .btn-off { background: #888; }
 

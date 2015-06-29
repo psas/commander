@@ -158,10 +158,10 @@ sections:
         payload: "#PORTX80\r\n"
 
 
-  - title: Extra
+  - title: RNH Query
     commands:
 
-      - title: "Port Status"
+      - title: "Port Status?"
         type: TCP
         importance: major
         connection: RNH
@@ -169,29 +169,34 @@ sections:
         interlock: False
         payload: "#PORTS\r\n"
 
-      - title: "Sleep"
+      - title: "Port Failure?"
         type: TCP
         importance: major
         connection: RNH
-        danger: low
-        interlock: False
-        payload: "#SLEP\r\n"
-
-      - title: "Port Failure"
-        type: TCP
-        importance: major
-        connection: RNH
-        danger: low
+        danger: 'on'
         interlock: False
         payload: "#PORTF\r\n"
 
-      - title: "Time"
+      - title: "Time?"
         type: TCP
         importance: major
         connection: RNH
-        danger: low
+        danger: 'on'
         interlock: False
         payload: "#TIME\r\n"
+
+      - title: "Umbilical status?"
+        type: TCP
+        importance: major
+        connection: RNH
+        danger: 'on'
+        interlock: True
+        payload: "#UMBD\r\n"
+
+
+
+  - title: Rocket Ready Signal
+    commands:
 
       - title: "RREADY ON"
         type: TCP
@@ -205,17 +210,22 @@ sections:
         type: TCP
         importance: major
         connection: RNH
-        danger: low
+        danger: 'off'
         interlock: True
         payload: "#RRDY0\r\n"
 
-      - title: "RREADY STATUS"
+      - title: "RREADY Status?"
         type: TCP
         importance: major
         connection: RNH
-        danger: low
+        danger: 'on'
         interlock: True
         payload: "#RRDY\r\n"
+
+
+
+  - title: Arm
+    commands:
 
       - title: "ARM"
         type: TCP
@@ -233,11 +243,17 @@ sections:
         interlock: False
         payload: "#SAFE\r\n"
 
-      - title: "Umbilical status"
+
+
+  - title: RNH Sleep
+    commands:
+
+      - title: "RNH Sleep"
         type: TCP
         importance: major
         connection: RNH
-        danger: low
-        interlock: True
-        payload: "#UMBD\r\n"
+        danger: 'off'
+        interlock: False
+        payload: "#SLEP\r\n"
+
 
